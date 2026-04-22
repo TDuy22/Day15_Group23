@@ -23,17 +23,18 @@
 ### 3. Các lớp cost chính (Cost Breakdown)
 | Lớp cost                  | Tỷ lệ ước tính | Ghi chú |
 |---------------------------|----------------|---------|
-| **API Tokens (LLM)**      | 55–65%        | Chiếm đa số, tăng tuyến tính với traffic |
-| **Compute / Hosting (Hybrid)** | 15–20%     | Cloud Run + on-prem inference |
-| **Storage (Vector DB + Cache)** | 5–8%       | Pinecone / Weaviate + Redis cache |
-| **Human review & Escalation** | 8–10%      | Nhân viên sales review báo giá lớn |
+| **API Tokens (LLM)**      | 60–70%        | Chiếm đa số, tăng tuyến tính với traffic |
+| **Compute / Hosting (Hybrid)** | 15–20%     | API Gateway, Backend, Orchestration, Cloud Run + on-prem inference |
+| **Storage (Vector DB + Cache)** | 5–8%       | Vector DB + Redis cache |
+| **Human review & Escalation** | 5–10%      | Nhân viên sales review báo giá lớn |
 | **Logging, Monitoring, Audit trail** | 5–7%   | Bắt buộc vì PDPA và audit bán hàng |
 
 ### 4. Tính sơ bộ cost ở mức MVP
-- Traffic MVP: < 1.000 requests/ngày  
-- Giá token (tham khảo Claude Sonnet): ~$3 / 1M input + $15 / 1M output  
-- **Cost LLM API**: ≈ $80 – $110 / tháng  
-- **Tổng cost MVP (Hybrid)**: **$140 – $220 / tháng** (đã bao gồm hosting, storage, logging)
+- Traffic MVP:Midpoints ~800 requests/day
+- Giá token (tham khảo Claude Sonnet): ~$3 / 1M input + $15 / 1M output
+- Giải định: Input ~ 24M tokens/month, Output ~ ~9.6M tokens/month
+- **Cost LLM API**: ≈ $200 – $230 / tháng  
+- **Tổng cost MVP (Hybrid)**: **$260 – $330 / tháng** (đã bao gồm hosting, storage, logging)
 
 ### 5. Khi user tăng 5x hoặc 10x thì phần nào tăng mạnh nhất?
 - Tăng **5x**: Token cost tăng ~5x (chiếm 65% → trở thành bottleneck)  
@@ -46,7 +47,7 @@
 
 - **Hidden cost nào dễ bị quên nhất?**  
   **Human review & escalation** (khi chatbot báo giá lớn hoặc tự tin thấp) + **Audit logging** (bắt buộc lưu toàn bộ conversation để tuân thủ PDPA và trách nhiệm pháp lý).
-
+   +  **Prompt / context inflation (RAG quá dài → tăng cost ngầm)**
 - **Đội có chỗ nào đang ước lượng quá lạc quan không?**  
   Có: Chưa tính chi phí tích hợp legacy CRM/ERP và chi phí maintain Vector DB khi catalogue xe thay đổi thường xuyên.
 
