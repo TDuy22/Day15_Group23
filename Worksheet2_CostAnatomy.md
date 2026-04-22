@@ -11,9 +11,9 @@
 - Reliability Lead: Nguyễn Văn Thức  
 
 ### 1. Ước lượng traffic
-- **Số user/ngày bình thường**: 800 – 1.200 users  
-- **Request/ngày bình thường**: 4.000 – 5.000 requests  
-- **Peak traffic** (campaign marketing hoặc ra mắt mẫu xe mới): 15.000 – 25.000 requests/ngày (tăng 5–6 lần)
+- **Số user/ngày bình thường**: 800 – 1.600 users  
+- **Request/ngày bình thường**: 4,800 – 9,600 requests  ( nhân với 6 request / ngày, được tính từ 0.3 % chat 8 message / session và 2.5 trên request trên message )  
+- **Peak traffic** (campaign marketing hoặc ra mắt mẫu xe mới): 18,000 – 48,000 requests/ngày (tăng 5–6 lần)
 
 ### 2. Ước lượng input/output tokens (giả sử dùng LLM API như Claude Sonnet / Grok)
 - **Input tokens/request**: 800 – 1.200 tokens (lịch sử chat + RAG context về xe, giá, khuyến mãi)  
