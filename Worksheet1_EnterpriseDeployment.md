@@ -40,7 +40,7 @@ Mục tiêu kinh doanh:
 
 ### 5. Mô hình triển khai đề xuất: **Hybrid**
 
-### 6. 2 lý do chính chọn Hybrid (logic & trade-off rõ ràng)
+### 6. 2 lý do chính chọn Hybrid
 **Lý do 1**:  
 Phần dữ liệu nhạy cảm (PII khách hàng, lead, báo giá cá nhân hóa, audit log) sẽ được lưu và xử lý trên **on-prem / Private Cloud / VPC riêng** của VinFast. Điều này đảm bảo tuân thủ PDPA, data residency và kiểm soát hoàn toàn quyền truy cập – giảm rủi ro tuân thủ pháp lý.
 
